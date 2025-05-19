@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # To Do List Web App
 
 A visually engaging, motivational, and interactive To-Do List web application built with HTML, CSS, and JavaScript.
