@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.google.com/specimen/Ubuntu" rel="stylesheet">
+    <header id="font">
+        <h1 id="h1"> Want To Sort Things Out? <br> Add It To Your To-Do List!</h1>
+    </header>
+</head>
+<body id="body">
+    <div class="todo-list">
+        <h1 id="h1">To-Do List</h1>
+        <input type="text" id="new-todo" placeholder="Add a new task">
+        <button onclick="addTask()">Add Task</button>
+    </div>
+    <div id="todo-items">
+        Your tasks
+    </div>
+    <div class="background-quotes">
+        <span class="quote" style="top:10%;left:8%;">"Dream big, work hard!"</span>
+        <span class="quote" style="top:25%;right:10%;text-align:right;">"You can do it!"</span>
+        <span class="quote" style="bottom:18%;left:12%;">"Stay positive, stay fighting!"</span>
+        <span class="quote" style="top:60%;right:7%;text-align:right;">"Progress, not perfection."</span>
+        <span class="quote" style="bottom:8%;left:40%;">"One step at a time."</span>
+        <span class="quote" style="top:45%;left:60%;">"Keep going!"</span>
+        <span class="quote" style="bottom:30%;right:12%;text-align:right;">"Believe in yourself!"</span>
+        <span class="quote" style="top:15%;left:35%;">"Every day is a fresh start."</span>
+        <span class="quote" style="bottom:12%;right:25%;text-align:right;">"Small steps lead to big changes."</span>
+        <span class="quote" style="top:70%;left:20%;">"You are stronger than you think."</span>
+        <span class="quote" style="top:80%;right:15%;text-align:right;">"Make today count!"</span>
+        <span class="quote" style="top:35%;left:75%;">"Success is a journey."</span>
+        <span class="quote" style="bottom:22%;right:5%;text-align:right;">"Stay curious, stay motivated."</span>
+        <span class="quote" style="top:55%;left:10%;">"Mistakes are proof you are trying."</span>
+        <span class="quote" style="bottom:5%;right:40%;text-align:right;">"You got this!"</span>
+        <!-- New multilingual quotes -->
+        <span class="quote" style="top:12%;right:30%;text-align:right;">"¡Sigue adelante!"</span>
+        <span class="quote" style="top:20%;left:55%;">"Croyez en vous!"</span>
+        <span class="quote" style="bottom:15%;right:18%;text-align:right;">"Du kannst es schaffen!"</span>
+        <span class="quote" style="top:65%;left:10%;">"继续努力！"</span>
+        <span class="quote" style="bottom:25%;left:60%;">"Avanti così!"</span>
+        <span class="quote" style="top:30%;right:30%;text-align:right;">"Você consegue!"</span>
+        <span class="quote" style="bottom:10%;left:5%;">"Верь в себя!"</span>
+        <span class="quote" style="top:75%;right:5%;text-align:right;">"続けてください！"</span>
+        <span class="quote" style="top:5%;left:50%;">"Faites de votre mieux!"</span>
+        <span class="quote" style="bottom:35%;right:30%;text-align:right;">"¡Tú puedes!"</span>
+        <span class="quote" style="top:40%;left:25%;">"坚持就是胜利！"</span>
+        <span class="quote" style="bottom:40%;left:35%;">"Mantenha o foco!"</span>
+        <span class="quote" style="top:60%;right:30%;text-align:right;">"Gib niemals auf!"</span>
+        <span class="quote" style="bottom:18%;right:45%;text-align:right;">"Fai del tuo meglio!"</span>
+        <span class="quote" style="top:18%;left:15%;">"努力は必ず報われる！"</span>
+        <span class="quote" style="bottom:28%;right:18%;text-align:right;">"La vida es bella."</span>
+        <span class="quote" style="top:50%;left:5%;">"Fé em Deus que ele é justo!"</span>
+        <span class="quote" style="top:22%;right:5%;text-align:right;">"Leben heißt kämpfen!"</span>
+        <span class="quote" style="bottom:15%;left:50%;">"C'est la vie!"</span>
+        <span class="quote" style="top:38%;right:18%;text-align:right;">"Nunca te rindas!"</span>
+        <span class="quote" style="bottom:40%;left:10%;">"坚持下去！"</span>
+        <span class="quote" style="top:65%;right:20%;text-align:right;">"Sii il cambiamento!"</span>
+        <span class="quote" style="bottom:8%;right:10%;text-align:right;">"Believe in your dreams!"</span>
+        <span class="quote" style="top:5%;left:20%;">"Lucha por tus sueños!"</span>
+        <span class="quote" style="bottom:2%;left:70%;">"Faites confiance à votre parcours."</span>
+        <span class="quote" style="top:85%;right:30%;text-align:right;">"Nunca desista dos seus sonhos!"</span>
+        <span class="quote" style="top:33%;left:40%;">"Ты можешь всё!"</span>
+        <span class="quote" style="bottom:12%;right:60%;">"努力し続けてください！"</span>
+        <span class="quote" style="top:60%;left:30%;">"Believe in the process!"</span>
+    </div>
+    <script src="Backend.js"></script>
+    <script>
+    // Animate background quotes floating gently
+    document.querySelectorAll('.quote').forEach(function(quote, i) {
+        const baseTop = quote.style.top ? parseFloat(quote.style.top) : null;
+        const baseBottom = quote.style.bottom ? parseFloat(quote.style.bottom) : null;
+        const baseLeft = quote.style.left ? parseFloat(quote.style.left) : null;
+        const baseRight = quote.style.right ? parseFloat(quote.style.right) : null;
+        quote.dataset.baseTop = baseTop;
+        quote.dataset.baseBottom = baseBottom;
+        quote.dataset.baseLeft = baseLeft;
+        quote.dataset.baseRight = baseRight;
+    });
+    function animateQuotes() {
+        const t = Date.now() / 1000;
+        document.querySelectorAll('.quote').forEach(function(quote, i) {
+            // Use base positions
+            let top = quote.dataset.baseTop;
+            let bottom = quote.dataset.baseBottom;
+            let left = quote.dataset.baseLeft;
+            let right = quote.dataset.baseRight;
+            // Animate with sine/cosine for gentle floating
+            if(top !== 'null') {
+                quote.style.top = `calc(${top}% + ${Math.sin(t + i) * 10}px)`;
+            }
+            if(bottom !== 'null') {
+                quote.style.bottom = `calc(${bottom}% + ${Math.cos(t + i) * 10}px)`;
+            }
+            if(left !== 'null') {
+                quote.style.left = `calc(${left}% + ${Math.cos(t/2 + i) * 10}px)`;
+            }
+            if(right !== 'null') {
+                quote.style.right = `calc(${right}% + ${Math.sin(t/2 + i) * 10}px)`;
+            }
+        });
+        requestAnimationFrame(animateQuotes);
+    }
+    animateQuotes();
+
+    document.getElementById('new-todo').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Prevent form submission or default behavior
+            addTask();
+        }
+    });
+    </script>
+</body>
+</html>

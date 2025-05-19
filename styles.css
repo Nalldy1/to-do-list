@@ -1,0 +1,150 @@
+#font {
+    font-family: 'Ubuntu', sans-serif;
+    background: linear-gradient(90deg, #f8f9fa 0%, #adb5bd 100%);
+    color: #222;
+    margin: 32px 0;
+    padding: 12px 0 8px 0;
+    border-radius: 18px;
+    box-shadow: 0 2px 10px rgba(52,58,64,0.06);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: unset;
+}
+#font::after {
+    content: "✨";
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    font-size: 1.3em;
+    opacity: 0.6;
+    animation: sparkle 2s infinite alternate;
+}
+@keyframes sparkle {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+    100% { transform: scale(1.2) rotate(20deg); opacity: 1; }
+}
+#h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    background: none;
+    color: #222;
+    text-shadow: 0 2px 8px #fff, 0 1px 1px #adb5bd, 0 0 2px #343a40;
+    margin: 0;
+    padding: 0;
+}
+
+body, #body {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(270deg, #f8f9fa, #e9ecef, #adb5bd, #343a40, #f8f9fa);
+    background-size: 1000% 1000%;
+    animation: gradientBG 24s ease-in-out infinite;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    25% {background-position: 50% 100%;}
+    50% {background-position: 100% 50%;}
+    75% {background-position: 50% 0%;}
+    100% {background-position: 0% 50%;}
+}
+
+.todo-list {
+    max-width: 600px;
+    margin: 32px auto 0 auto;
+    background: #fff;
+    padding: 18px 24px 18px 24px;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(52,58,64,0.08);
+    position: relative;
+    z-index: 1;
+}
+
+#todo-items {
+    text-align: center;
+    max-width: 600px;
+    margin: 24px auto 32px auto; /* Add top margin for space */
+    padding: 18px 24px 18px 24px;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(52,58,64,0.08);
+    background: #fff;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    top: 0;
+}
+
+.task-box {
+    background: #f1f3f4;
+    border: 1px solid #dee2e6;
+    color: #343a40;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 10px 16px;
+    flex-direction: row;
+    border-radius: 18px;
+}
+.task-box span {
+    flex: 1;
+    text-align: left;
+}
+.task-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.task-box .task-completed {
+    color: #868e96;
+}
+
+button {
+    background: #343a40;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #495057;
+}
+
+input[type="text"] {
+    background: #f8f9fa;
+    border: 1px solid #adb5bd;
+    border-radius: 4px;
+    padding: 8px;
+    color: #343a40;
+}
+
+.background-quotes {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+.quote {
+    position: absolute;
+    color: #343a40;
+    font-size: 1.1em;
+    font-family: 'Ubuntu', sans-serif;
+    opacity: 0.11;
+    font-weight: bold;
+    max-width: 300px;
+    user-select: none;
+    text-shadow: 0 2px 8px #fff, 0 1px 1px #adb5bd;
+    transition: opacity 0.3s;
+}
+@media (max-width: 700px) {
+    .quote { font-size: 0.9em; max-width: 160px; }
+}
