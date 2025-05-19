@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # To Do List Web App
 
 A visually engaging, motivational, and interactive To-Do List web application built with HTML, CSS, and JavaScript.
@@ -29,3 +30,7 @@ A visually engaging, motivational, and interactive To-Do List web application bu
 - `To Do List.html` — Main HTML file
 - `styles.css` — All styles and animations
 - `Backend.js` — JavaScript for task management
+=======
+# to-do-list
+Add the tasks you have "to do"
+>>>>>>> 858dbf6787d75b953a0b3a72628d25d2cfec1db9
